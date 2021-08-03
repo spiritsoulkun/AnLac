@@ -1,0 +1,103 @@
+﻿@using AnLac.Models
+@model List<QLDatabaseCard>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main Content Wrapper Start -->
+<div class="main-content-wrapper">
+    <div class="page-content-inner ptb--80 pt-md--40 pb-md--60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 mb-md--50">
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <div class="table-content table-responsive">
+                                    <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;</th>
+                                                <th>&nbsp;</th>
+                                                <th class="text-left">Product</th>
+                                                <th>price</th>
+                                                <th>quantity</th>
+                                                <th>total</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tbody>
+                                                <tr>
+                                                    <td class="product-remove text-left"><a href="@Url.Action("DeleteCard", "Card", new { @iCode = item.iproductCode })"><i class="la la-remove"></i></a></td>
+                                                    <td class="product-thumbnail text-left">
+                                                        <img src="@item.sproductImage" alt="Product Thumnail">
+                                                    </td>
+                                                    <td class="product-name text-left wide-column">
+                                                        <h3>
+                                                            <a href="product-details.html">@item.sproductName</a>
+                                                        </h3>
+                                                    </td>
+                                                    <td class="product-price">
+                                                        <span class="product-price-wrapper">
+                                                            <span class="money">$49.00</span>
+                                                        </span>
+                                                    </td>
+                                                    @using (Html.BeginForm("UpdataCard", "Card", new { @iCode = item.iproductCode }))
+                                                    {
+                                                        <td class="product-quantity">
+                                                            <div class="quantity">
+                                                                <input type="number" class="quantity-input" name="txtSoLuong" id="qty-1" value="@item.iorderDetailsQuantity" min="1">
+                                                            </div>
+                                                        </td>
+                                                        <td class="product-total-price">
+                                                            <span class="product-price-wrapper">
+                                                                <span class="money">@String.Format("{0:0,0}", item.dTotal) VND</span>
+                                                            </span>
+                                                        </td>
+                                                        <td><input type="submit" value="Cập nhật" /></td>
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        }
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="cart-collaterals">
+                        <div class="cart-totals">
+                            <h5 class="font-size-14 font-bold mb--15">Cart totals</h5>
+                            <div class="cart-calculator">
+                                <div class="cart-calculator__item">
+                                    <div class="cart-calculator__item--head">
+                                        <span>Tổng số lượng sản phẩm</span>
+                                        
+                                    </div>
+                                    <div class="cart-calculator__item--value">
+                                        <span>@ViewBag.TotalSL</span>
+                                    </div>
+                                    <div class="cart-calculator__item--head">
+                                        <span>Tổng tiền</span>
+                                    </div>
+                                    <div class="cart-calculator__item--value">
+                                        <span>@ViewBag.TotalMoney</span>
+                                    </div>
+                                    <div class="">
+                                        <a class="cart-form__btn" href="@Url.Action("DeleteAllCard")">Xóa tất cả</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <a href="@Url.Action("ThanhToan")" class="btn btn-size-md btn-shape-square btn-fullwidth">
+                            Thanh toán
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content Wrapper Start -->

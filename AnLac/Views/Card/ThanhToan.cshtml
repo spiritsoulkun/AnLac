@@ -1,0 +1,160 @@
+﻿@using AnLac.Models
+@model List<QLDatabaseCard>
+
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb area Start -->
+<section class="page-title-area bg-image ptb--80" data-bg-image="assets/img/bg/page_title_bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="page-title">Checkout</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><span>Checkout</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb area End -->
+<!-- Main Content Wrapper Start -->
+<div class="main-content-wrapper">
+    <div class="page-content-inner pt--80 pt-md--60 pb--72 pb-md--60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- User Action Start -->
+                    <div class="user-actions user-actions__coupon">
+                        <div class="message-box mb--30">
+                            <p><i class="la la-exclamation-circle"></i> Have A Coupon? <a class="expand-btn" href="#coupon_info"> Click Here To Enter Your Code.</a></p>
+                        </div>
+                        <div id="coupon_info" class="user-actions__form hide-in-default">
+                            <form action="#" class="form">
+                                <p>If you have a coupon code, please apply it below.</p>
+                                <div class="form__group d-sm-flex">
+                                    <input type="text" name="coupon" id="coupon" class="form__input mr--20 mr-xs--0" placeholder="Coupon Code">
+                                    <button type="submit" class="btn btn-size-sm">Apply Coupon</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- User Action End -->
+                </div>
+            </div>
+            <div class="row">
+                <!-- Checkout Area Start -->
+                <div class="col-lg-6">
+                    <div class="checkout-title mt--10">
+                        <h2>Chi tiết khách hàng</h2>
+                        @{
+                            Customer kh = (Customer)Session["TaiKhoan"];
+                        }
+                    </div>
+                    <div class="checkout-form">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            <form action="#" class="form form--checkout" method="post">
+                                <div class="form-row mb--20">
+                                    <div class="form__group col-12 ">
+                                        <label for="billing_fname" class="form__label">Tên<span class="required">*</span></label>
+                                        <input type="text" value="@kh.customerName" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="form-row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="billing_phone" class="form__label">Phone <span class="required">*</span></label>
+                                        <input type="text" value="@kh.customerPhone" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="form-row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="billing_email" class="form__label">Email Address  <span class="required">*</span></label>
+                                        <input type="text" value="@kh.customerEmail" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="form-row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="billing_email" class="form__label">Ngày đặt hàng  <span class="required">*</span></label>
+                                        <input type="text" value="@DateTime.Now.ToShortDateString()" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="form-row mb--20">
+                                    <div class="form__group col-12">
+                                        <label for="billing_email" class="form__label">Email Address  <span class="required">*</span></label>
+                                        <input type="text" value="@DateTime.Now.AddDays(1.0)" name="orderShippedDate" class="form__input">
+                                    </div>
+                                </div>
+                                <div class="payment-group mt--20">
+                                    <button type="submit" class="btn btn-size-md btn-fullwidth">Place Order</button>
+                                </div>
+                            </form>
+                        }
+
+                    </div>
+                </div>
+                <div class="col-xl-5 offset-xl-1 col-lg-6 mt-md--40">
+                    <div class="order-details">
+                        <div class="checkout-title mt--10">
+                            <h2>Your Order</h2>
+                        </div>
+                        <div class="table-content table-responsive mb--30">
+                            <table class="table order-table order-table-2">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th class="text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                @item.sproductName
+                                                <strong><span>&#10005;</span>@item.iorderDetailsQuantity</strong>
+                                            </th>
+                                            <td class="text-right">@item.dorderDetailsPriceEach</td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+                                <tfoot>
+                                    <tr class="cart-subtotal">
+                                        <th>Tổng số lượng</th>
+                                        <td class="text-right">@ViewBag.TotalSL</td>
+                                    </tr>
+                                    <tr class="shipping">
+                                        <th>Tổng tiền</th>
+                                        <td class="text-right">
+                                            <span>@ViewBag.TotalMoney</span>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="checkout-payment">
+                            <form action="#" class="payment-form" me>
+                                <div class="payment-group mb--10">
+                                    <div class="payment-radio">
+                                        <input type="radio" value="cash" name="payment-method" id="cash">
+                                        <label class="payment-label" for="cash">
+                                            Thanh toán khi nhận hàng
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Checkout Area End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content Wrapper Start -->

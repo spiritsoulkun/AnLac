@@ -1,0 +1,72 @@
+﻿@using AnLac.Models
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Product>
+
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main Content Wrapper Start -->
+<div class="main-content-wrapper">
+    <div class="shop-page-wrapper ptb--80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="shop-products">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-xl-3 col-lg-4 col-sm-6 mb--50">
+                                    <div class="ft-product">
+                                        <div class="product-inner">
+                                            <div class="product-image">
+                                                <figure class="product-image--holder">
+                                                    <img src="@item.productImage" alt="Product">
+                                                </figure>
+                                                <a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )" class="product-overlay"></a>
+                                                <div class="product-action">
+                                                    <a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )" class="action-btn">
+                                                        <i class="la la-eye"></i>
+                                                    </a>
+                                                    <a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )" class="action-btn">
+                                                        <i class="la la-heart-o"></i>
+                                                    </a>
+                                                    <a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )" class="action-btn">
+                                                        <i class="la la-repeat"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <h3 class="product-title"><a href="product-details.html">@item.productName</a></h3>
+                                                <div class="product-info-bottom">
+                                                    <div class="product-price-wrapper">
+                                                        <span class="money">@item.productBuyPrice</span>
+                                                    </div>
+                                                    <a href="@Url.Action("AddCard", "Card", new {@iproductCode = item.productCode, @strURL = Request.Url.ToString()})" class="add-to-cart pr--15">
+                                                        <i class="la la-plus"></i>
+                                                        <span>Add To Cart</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <nav class="pagination-wrap">
+                        <ul class="pagination">
+                            <li>@Html.PagedListPager(Model, page=>Url.Action("Shop", new{page = page}))<li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content Wrapper Start -->

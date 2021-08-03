@@ -1,0 +1,147 @@
+﻿@model IEnumerable<AnLac.Models.QLDatabaseSP>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main Content Wrapper Start -->
+<main class="main-content-wrapper">
+    <!-- Slider area Start -->
+    <section class="homepage-slider mb--75 mb-md--55">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="element-carousel slick-right-bottom"
+                         data-slick-options='{
+                                "slidesToShow": 1,
+                                "arrows": true,
+                                "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "la la-arrow-left" },
+                                "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "la la-arrow-right" }
+                            }'
+                         data-slick-responsive='[{"breakpoint": 768, "settings": {"arrows": false}}]'>
+                        <div class="item">
+                            <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
+                                <div class="row align-items-center no-gutters w-100">
+                                    <div class="col-xl-7 col-md-6 mb-sm--50">
+                                        <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="plr--15">
+                                            <img src="~/Img/d-backgroud.jpg" alt="Slider O1 image" class="mx-auto">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-6 col-lg-5 offset-lg-1 offset-xl-0">
+                                        <div class="slider-content">
+                                            <div class="slider-content__text mb--40 mb-md--30">
+                                                <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">#New Treand</p>
+                                                <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Enlight your world. Make yourself more bright.</p>
+                                                <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Abotar Lighting</h1>
+                                            </div>
+                                            <div class="slider-content__btn">
+                                                <a href="#" class="btn btn-outline btn-brw-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="single-slide d-flex align-items-center bg-color" data-bg-color="#dbf3f2">
+                                <div class="row align-items-center no-gutters w-100">
+                                    <div class="col-xl-6 col-md-6 mb-sm--50 order-md-2">
+                                        <figure data-animation="fadeInUp" data-duration=".3s" data-delay=".3s" class="pl-15 pr--60">
+                                            <img src="~/Img/i-backgroud.jpg" alt="Slider O1 image" class="mx-auto">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-5 col-lg-5 offset-md-1 order-md-1">
+                                        <div class="slider-content">
+                                            <div class="slider-content__text border-color-2 mb--40 mb-md--30">
+                                                <p class="mb--15" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">#New Treand</p>
+                                                <p class="mb--20" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Enlight your world. Make yourself more bright.</p>
+                                                <h1 class="heading__primary lh-pt7" data-animation="fadeInUp" data-duration=".3s" data-delay=".3s">Abotar Lighting</h1>
+                                            </div>
+                                            <div class="slider-content__btn">
+                                                <a href="#" class="btn btn-outline btn-brw-2 btn-brc-2" data-animation="fadeInUp" data-duration=".3s" data-delay=".6s">Shop Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Slider area End -->
+    <!-- Product Tab Area Start -->
+    <section class="product-tab-area mb--30 mb-md--10">
+        <div class="container">
+            <div class="row mb--28 mb-md--18 mb-sm--33">
+                <div class="col-md-3 text-md-left text-center">
+                    <h2>All Products</h2>
+                    <h2>@Html.ActionLink("Thêm sản phẩm","Create","QLSPs")</h2>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-style-1">
+                        <div class="nav nav-tabs justify-content-md-end justify-content-center" id="product-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="new-all-tab" data-toggle="tab" href="#new-all" role="tab" aria-controls="new-all" aria-selected="true">
+                                <span class="nav-text">All</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content" id="product-tab-content">
+                        <div class="tab-pane fade show active" id="new-all" role="tabpanel" aria-labelledby="new-all-tab">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-3 col-sm-6 mb--45">
+                                        <div class="ft-product HTfadeInUp">
+                                            <div class="product-inner">
+                                                <div class="product-image">
+                                                    <figure class="product-image--holder">
+                                                        <img src="@item.productImage" alt="Product">
+                                                    </figure>
+                                                    <a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )" class="product-overlay"></a>
+                                                    <div class="product-action">
+                                                        <a class="action-btn" href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )">
+                                                            <i class="la la-eye"></i>
+                                                        </a>
+                                                        <a href="@Url.Action("Delete","QLSPs",  new {@productCode = item.productCode } )" class="action-btn">
+                                                            <i class="la la-trash"></i>
+                                                        </a>
+                                                        <a class="action-btn" href="@Url.Action("Edit","QLSPs",new {@productCode = item.productCode })">
+                                                            <i class="la la-edit"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <h3 class="product-title"><a href="@Url.Action("Detail","QLSPs",  new {@productCode = item.productCode } )">@item.productName</a></h3>
+                                                    <div class="product-info-bottom">
+                                                        <div class="product-price-wrapper">
+                                                            <span class="money">@item.productBuyPrice</span>
+                                                        </div>
+                                                        <a href="@Url.Action("AddCard", "Card", new {@iproductCode = item.productCode, @strURL = Request.Url.ToString()})" class="add-to-cart pr--15">
+                                                            <i class="la la-plus"></i>
+                                                            <span>Add To Cart</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Tab Area End -->
+
+</main>
+<!-- Main Content Wrapper End -->

@@ -1,0 +1,63 @@
+﻿@model AnLac.Models.QLDatabaseSP
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main Content Wrapper Start -->
+<div class="main-content-wrapper">
+    <div class="page-content-inner pt--80 pt-md--60">
+        <div class="container">
+            <div class="row no-gutters mb--80 mb-md--57">
+                <div class="col-lg-7 product-main-image">
+                    <div class="product-image">
+                        <div class="product-gallery vertical-slide-nav">
+                            <div class="product-gallery__large-image mb-sm--30">
+                                <div class="product-gallery__wrapper">
+                                    <div class="element-carousel main-slider image-popup"
+                                         data-slick-options='{
+                                                "slidesToShow": 1,
+                                                "slidesToScroll": 1,
+                                                "infinite": true,
+                                                "arrows": false,
+                                                "asNavFor": ".nav-slider"
+                                            }'>
+                                        <figure class="product-gallery__image zoom">
+                                            <img src=" @Html.DisplayFor(model => model.productImage)" alt="Product">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 offset-xl-1 col-lg-5 product-main-details mt-md--50">
+                    <div class="product-summary pl-lg--30 pl-md--0">
+                        <h3 class="product-title mb--20"> @Html.DisplayFor(model => model.productName)</h3>
+                        <p class="product-short-description mb--20"> @Html.DisplayFor(model => model.productDescription)</p>
+                        <div class="product-price-wrapper mb--25">
+                            <span class="money"> @Html.DisplayFor(model => model.productBuyPrice)</span>
+                        </div>
+                        
+                        <div class="product-action d-flex flex-sm-row align-items-sm-center flex-column align-items-start mb--30">
+                            <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                <label class="quantity-label" for="qty">Quantity:</label>
+                                <div class="quantity">
+                                    <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
+                                </div>
+                            </div>
+                            <a class="btn btn-shape-square btn-size-sm" href="@Url.Action("AddCard", "Card", new {@iproductCode = Model.productCode, @strURL = Request.Url.ToString()})">Thêm giỏ hàng</a>
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+<!-- Main Content Wrapper End -->

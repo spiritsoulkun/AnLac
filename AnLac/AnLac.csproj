@@ -1,0 +1,329 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E23DC2F3-87E6-470C-AA2F-8A3BFFE4C564}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnLac</RootNamespace>
+    <AssemblyName>AnLac</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44368</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\b-bdr.png" />
+    <Content Include="images\b-bg.jpg" />
+    <Content Include="images\b-bg2.jpg" />
+    <Content Include="images\b-bg3.jpg" />
+    <Content Include="images\hbdr.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\signature.png" />
+    <Content Include="Img\cZoMBt.jpg" />
+    <Content Include="Img\d-backgroud.jpg" />
+    <Content Include="Img\i-backgroud.jpg" />
+    <Content Include="Img\img02.jpg" />
+    <Content Include="Img\img03.jpg" />
+    <Content Include="Img\img04.jpg" />
+    <Content Include="Img\img05.jpg" />
+    <Content Include="Img\img06.jpg" />
+    <Content Include="Img\img07.jpg" />
+    <Content Include="Img\img08.jpg" />
+    <Content Include="Img\img09.jpg" />
+    <Content Include="Img\img10.jpg" />
+    <Content Include="Img\logo.png" />
+    <Content Include="Img\p-logo1.png" />
+    <Content Include="Script\css\main.css" />
+    <Content Include="Script\css\vendor.css" />
+    <Content Include="Script\fonts\lg.svg" />
+    <Content Include="Script\fonts\line-awesome.svg" />
+    <Content Include="Script\img\banner\banner-01.jpg" />
+    <Content Include="Script\img\banner\banner-02.jpg" />
+    <Content Include="Script\img\banner\banner-03.jpg" />
+    <Content Include="Script\img\bg\blog-breadcrumb.jpg" />
+    <Content Include="Script\img\bg\page_title_bg.jpg" />
+    <Content Include="Script\img\blog\blog-01.jpg" />
+    <Content Include="Script\img\blog\blog-02.jpg" />
+    <Content Include="Script\img\blog\blog-03.jpg" />
+    <Content Include="Script\img\blog\blog-06-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-06-400x350.jpg" />
+    <Content Include="Script\img\blog\blog-06-560x345.jpg" />
+    <Content Include="Script\img\blog\blog-06.jpg" />
+    <Content Include="Script\img\blog\blog-07-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-07-560x345.jpg" />
+    <Content Include="Script\img\blog\blog-07.jpg" />
+    <Content Include="Script\img\blog\blog-08-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-08-560x345.jpg" />
+    <Content Include="Script\img\blog\blog-08.jpg" />
+    <Content Include="Script\img\blog\blog-09-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-09-560x345.jpg" />
+    <Content Include="Script\img\blog\blog-09.jpg" />
+    <Content Include="Script\img\blog\blog-10-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-10-560x345.jpg" />
+    <Content Include="Script\img\blog\blog-10.jpg" />
+    <Content Include="Script\img\blog\blog-11-350x236.jpg" />
+    <Content Include="Script\img\blog\blog-11-350x236.png" />
+    <Content Include="Script\img\blog\blog-11-560x345.png" />
+    <Content Include="Script\img\brand\brand-01.png" />
+    <Content Include="Script\img\brand\brand-02.png" />
+    <Content Include="Script\img\brand\brand-03.png" />
+    <Content Include="Script\img\brand\brand-04.png" />
+    <Content Include="Script\img\brand\brand-05.png" />
+    <Content Include="Script\img\favicon.ico" />
+    <Content Include="Script\img\icon.png" />
+    <Content Include="Script\img\icons\cross.png" />
+    <Content Include="Script\img\icons\grid.png" />
+    <Content Include="Script\img\icons\list.png" />
+    <Content Include="Script\img\icons\loading.gif" />
+    <Content Include="Script\img\icons\marker.png" />
+    <Content Include="Script\img\icons\play.png" />
+    <Content Include="Script\img\icons\video-play.png" />
+    <Content Include="Script\img\icons\vimeo-play.png" />
+    <Content Include="Script\img\icons\youtube-play.png" />
+    <Content Include="Script\img\logo\logo-white.png" />
+    <Content Include="Script\img\logo\logo.png" />
+    <Content Include="Script\img\others\1.png" />
+    <Content Include="Script\img\others\avatar-large-2.jpg" />
+    <Content Include="Script\img\others\avatar-large-2.png" />
+    <Content Include="Script\img\others\client-1.jpg" />
+    <Content Include="Script\img\others\client-2.jpg" />
+    <Content Include="Script\img\others\client-3.jpg" />
+    <Content Include="Script\img\others\comment-1.jpg" />
+    <Content Include="Script\img\others\comment-2.jpg" />
+    <Content Include="Script\img\others\comment-3.jpg" />
+    <Content Include="Script\img\others\team-04.jpg" />
+    <Content Include="Script\img\products\best-product-01.png" />
+    <Content Include="Script\img\products\feature-product-01.png" />
+    <Content Include="Script\img\products\prod-01-100x100.jpg" />
+    <Content Include="Script\img\products\prod-01-170x195.jpg" />
+    <Content Include="Script\img\products\prod-01-270x300.jpg" />
+    <Content Include="Script\img\products\prod-01-70x88.jpg" />
+    <Content Include="Script\img\products\prod-01.jpg" />
+    <Content Include="Script\img\products\prod-02-100x100.jpg" />
+    <Content Include="Script\img\products\prod-02-170x195.jpg" />
+    <Content Include="Script\img\products\prod-02-270x300.jpg" />
+    <Content Include="Script\img\products\prod-02-700x778.png" />
+    <Content Include="Script\img\products\prod-02-70x88.jpg" />
+    <Content Include="Script\img\products\prod-02.jpg" />
+    <Content Include="Script\img\products\prod-03-100x100.jpg" />
+    <Content Include="Script\img\products\prod-03-170x195.jpg" />
+    <Content Include="Script\img\products\prod-03-270x300.jpg" />
+    <Content Include="Script\img\products\prod-03-70x88.jpg" />
+    <Content Include="Script\img\products\prod-03.jpg" />
+    <Content Include="Script\img\products\prod-04-170x195.jpg" />
+    <Content Include="Script\img\products\prod-04-270x300.jpg" />
+    <Content Include="Script\img\products\prod-04-700x778.png" />
+    <Content Include="Script\img\products\prod-04-70x88.jpg" />
+    <Content Include="Script\img\products\prod-04.png" />
+    <Content Include="Script\img\products\prod-05-270x300.jpg" />
+    <Content Include="Script\img\products\prod-06-270x300.jpg" />
+    <Content Include="Script\img\products\prod-06-700x778.png" />
+    <Content Include="Script\img\products\prod-06.png" />
+    <Content Include="Script\img\products\prod-08-170x195.png" />
+    <Content Include="Script\img\products\prod-08-270x300.png" />
+    <Content Include="Script\img\products\prod-08-700x778.png" />
+    <Content Include="Script\img\products\prod-08.png" />
+    <Content Include="Script\img\products\prod-09-170x195.png" />
+    <Content Include="Script\img\products\prod-09-270x300.png" />
+    <Content Include="Script\img\products\prod-09-700x778.png" />
+    <Content Include="Script\img\products\prod-09.png" />
+    <Content Include="Script\img\products\prod-10-170x195.png" />
+    <Content Include="Script\img\products\prod-10-270x300.png" />
+    <Content Include="Script\img\products\prod-10-700x778.png" />
+    <Content Include="Script\img\products\prod-10.png" />
+    <Content Include="Script\img\slider\slider-01-img-01.png" />
+    <Content Include="Script\img\slider\slider-02-img-01.png" />
+    <Content Include="Script\js\main.js" />
+    <Content Include="Script\js\vendor.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\QLSPsController.cs" />
+    <Compile Include="Controllers\ResignAndLoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseService.cs" />
+    <Compile Include="Models\DataClassesDoAn.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesDoAn.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLDatabaseCard.cs" />
+    <Compile Include="Models\QLDatabaseKH.cs" />
+    <Compile Include="Models\QLDatabaseSP.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Models\DataClassesDoAn.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClassesDoAn.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Models\DataClassesDoAn.dbml.layout">
+      <DependentUpon>DataClassesDoAn.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <Content Include="Views\QLSPs\Index.cshtml" />
+    <Content Include="Views\QLSPs\Create.cshtml" />
+    <Content Include="Views\QLSPs\Edit.cshtml" />
+    <Content Include="Views\ResignAndLogin\Register.cshtml" />
+    <Content Include="Views\Card\Card.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Script\fonts\lg.eot" />
+    <Content Include="Script\fonts\lg.ttf" />
+    <Content Include="Script\fonts\lg.woff" />
+    <Content Include="Script\fonts\line-awesome.eot" />
+    <Content Include="Script\fonts\line-awesome.ttf" />
+    <Content Include="Script\fonts\line-awesome.woff" />
+    <Content Include="Script\fonts\line-awesome.woff2" />
+    <Content Include="Views\QLSPs\Shop.cshtml" />
+    <Content Include="Views\QLSPs\Detail.cshtml" />
+    <Content Include="Views\Card\XacNhanDonHang.cshtml" />
+    <Content Include="Views\ResignAndLogin\Login.cshtml" />
+    <Content Include="Views\Card\ThanhToan.cshtml" />
+    <Content Include="Views\QLSPs\Delete.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Script\img\about\" />
+    <Folder Include="Script\img\team\" />
+    <Folder Include="Script\img\testimonial\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50094</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44368/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
